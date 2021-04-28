@@ -1,20 +1,20 @@
 package com.salesforce.fs;
 
-import com.salesforce.fs.domain.Comando;
 import com.salesforce.fs.service.impl.ComandoServiceImpl;
 
 public class Main {
 
-  public static void main(String comandoIngresado) throws Exception {
+  public static void main(String[] args) throws Exception {
+    System.out.println(Constantes.TITULO);
     try {
-      Comando cmd = FactoriaComando.getComandoIngresado(comandoIngresado);
-      if (cmd == null) {
+      String comandoIngresado = args[0];
+      if (comandoIngresado == null) {
         ComandoServiceImpl.mostrarMensajeError();
       } else {
-        cmd.ejecutar();
+        ComandoServiceImpl.ejecutarComandoIngresado(comandoIngresado);
       }
     } catch (Exception e) {
-      throw new Exception();
+      System.out.println(Constantes.ERROR);
     }
   }
 }

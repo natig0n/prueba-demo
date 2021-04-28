@@ -11,15 +11,15 @@ public class FactoriaComando {
 
   public static Comando getComandoIngresado(String cmd) {
     if (cmd.equals(Constantes.CMD_QUIT)) {
-      return new Quit();
+      return new Quit(cmd);
     } else if (cmd.equals(Constantes.CMD_PWD)) {
-      return new Pwd();
+      return new Pwd(cmd);
     } else if (cmd.equals(Constantes.CMD_LS)) {
-      return new Ls();
+      return new Ls(cmd);
     } else if (cmd.equals(Constantes.CMD_MKDIR)) {
-      return new Mkdir();
+      return new Mkdir(cmd);
     } else if (cmd.equals(Constantes.CMD_TOUCH)) {
-      return new Touch();
+      return new Touch(cmd);
     }
     return null;
   }

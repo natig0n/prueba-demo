@@ -14,12 +14,12 @@ public abstract class Comando {
     this.nombre = nombre;
   }
 
-  public void ejecutar() throws Exception {
+  public void ejecutar() {
     try {
       System.out.println(Constantes.EJECUTO + this.getNombre());
       correrComando();
     } catch (Exception e) {
-      throw new Exception(Constantes.ERROR + this.getNombre());
+      System.out.println(Constantes.ERROR + this.getNombre());
     }
   }
 
